@@ -1,464 +1,121 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SIC LLC | Commercial Construction Excellence</title>
-<meta content="Premium commercial construction and design-build services by SIC LLC." name="description"/>
-<!-- BEGIN: Fonts & Tailwind -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- END: Fonts & Tailwind -->
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'sic-light': '#f5f4f2',
-            'sic-grey': '#e9e7e4',
-            'sic-charcoal': '#2b2b2b',
-            'sic-gold': '#c5a059',
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-<style data-purpose="custom-animations">
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    
-    .sticky-card {
-      position: sticky;
-      top: 100px;
-    }
-    
-    .video-overlay {
-      background: linear-gradient(rgba(43,43,43,0.4), rgba(43,43,43,0.4));
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Studio</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
     }
 
-    /* Custom Timeline Line */
-    .timeline-line::before {
-      content: '';
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .scroll-container {
+      width: 80%;
+      height: 80vh;
+      overflow-y: scroll;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .design {
+      width: 100%;
+      height: auto;
+    }
+
+    .arrow {
       position: absolute;
-      left: 50%;
-      width: 2px;
-      height: 100%;
-      background: #c5a059;
-      transform: translateX(-50%);
+      top: 50%;
+      transform: translateY(-50%);
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .arrow:hover {
+      background: #0056b3;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .arrow:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
   </style>
 </head>
-<body class="bg-sic-light text-sic-charcoal font-sans overflow-x-hidden">
-<!-- BEGIN: Navigation -->
-<nav class="fixed top-0 w-full z-50 transition-all duration-500 py-6 px-8 flex justify-between items-center bg-transparent" id="main-nav">
-<div class="text-2xl font-serif font-bold tracking-tighter">SIC LLC</div>
-<div class="hidden md:flex space-x-12 uppercase text-xs tracking-[0.2em] font-medium">
-<a class="hover:text-sic-gold transition-colors" href="#services">Services</a>
-<a class="hover:text-sic-gold transition-colors" href="#projects">Projects</a>
-<a class="hover:text-sic-gold transition-colors" href="#tech">Technology</a>
-<a class="hover:text-sic-gold transition-colors border-b border-sic-charcoal pb-1" href="#contact">Get in Touch</a>
-</div>
-<button class="md:hidden text-sic-charcoal">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-</button>
-</nav>
-<!-- END: Navigation -->
-<!-- BEGIN: Hero Section -->
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-<video autoplay="" class="absolute w-full h-full object-cover" loop="" muted="" playsinline="">
-<source src="banner_video.mp4" type="video/mp4"/>
-</video>
-<div class="absolute inset-0 bg-black/40"></div>
-<div class="relative z-10 text-center text-white px-4">
-<h1 class="font-serif text-5xl md:text-8xl mb-8 leading-tight">Building Commercial<br/><span class="italic">Excellence</span></h1>
-<a class="inline-block border border-white px-10 py-4 uppercase text-xs tracking-widest hover:bg-white hover:text-sic-charcoal transition-all duration-300" href="#projects">View Projects</a>
-</div>
-</section>
-<!-- END: Hero Section -->
-<!-- BEGIN: Services Section -->
-<section class="py-32 px-8 bg-sic-light" id="services">
-<div class="max-w-7xl mx-auto">
-<div class="mb-20 reveal">
-<h2 class="font-serif text-4xl mb-4">Mastering the Build</h2>
-<div class="w-20 h-px bg-sic-gold"></div>
-</div>
-<div class="grid md:grid-cols-3 gap-8">
-<!-- Service Card 1 -->
-<div class="group relative h-[500px] overflow-hidden bg-sic-grey reveal">
-<video autoplay="" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-architectural-blueprint-with-a-pencil-and-compass-42861-large.mp4" type="video/mp4"/>
-</video>
-<div class="absolute inset-0 bg-sic-grey group-hover:bg-black/40 transition-all duration-500"></div>
-<div class="relative h-full flex flex-col justify-end p-10 group-hover:text-white transition-colors duration-500">
-<h3 class="font-serif text-2xl mb-4">Commercial Construction</h3>
-<p class="text-sm leading-relaxed opacity-80 group-hover:opacity-100 mb-6">High-end retail, office complexes, and hospitality structures built with architectural integrity.</p>
-<div class="w-8 h-px bg-sic-gold"></div>
-</div>
-</div>
-<!-- Service Card 2 -->
-<div class="group relative h-[500px] overflow-hidden bg-sic-grey reveal" style="transition-delay: 200ms;">
-<video autoplay="" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-crane-lifting-a-heavy-load-on-a-construction-site-4431-large.mp4" type="video/mp4"/>
-</video>
-<div class="absolute inset-0 bg-sic-grey group-hover:bg-black/40 transition-all duration-500"></div>
-<div class="relative h-full flex flex-col justify-end p-10 group-hover:text-white transition-colors duration-500">
-<h3 class="font-serif text-2xl mb-4">General Contracting</h3>
-<p class="text-sm leading-relaxed opacity-80 group-hover:opacity-100 mb-6">Unrivaled management and execution for projects of significant complexity and scale.</p>
-<div class="w-8 h-px bg-sic-gold"></div>
-</div>
-</div>
-<!-- Service Card 3 -->
-<div class="group relative h-[500px] overflow-hidden bg-sic-grey reveal" style="transition-delay: 400ms;">
-<video autoplay="" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-an-architect-working-on-a-blueprint-42863-large.mp4" type="video/mp4"/>
-</video>
-<div class="absolute inset-0 bg-sic-grey group-hover:bg-black/40 transition-all duration-500"></div>
-<div class="relative h-full flex flex-col justify-end p-10 group-hover:text-white transition-colors duration-500">
-<h3 class="font-serif text-2xl mb-4">Design-Build</h3>
-<p class="text-sm leading-relaxed opacity-80 group-hover:opacity-100 mb-6">A unified approach that bridges the gap between creative vision and structural reality.</p>
-<div class="w-8 h-px bg-sic-gold"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- END: Services Section -->
-<!-- BEGIN: Feature Strip -->
-<section class="py-20 border-y border-sic-grey bg-sic-light">
-<div class="max-w-7xl mx-auto px-8">
-<div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-12">
-<h2 class="font-serif text-3xl max-w-sm">Built for durability. Engineered for scale.</h2>
-<div class="flex flex-wrap justify-center gap-12 md:gap-24">
-<div class="flex flex-col items-center">
-<div class="w-12 h-12 mb-4 text-sic-gold"><svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-<span class="text-xs uppercase tracking-widest font-semibold">On-Time Delivery</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="w-12 h-12 mb-4 text-sic-gold"><svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-<span class="text-xs uppercase tracking-widest font-semibold">Safety First</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="w-12 h-12 mb-4 text-sic-gold"><svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-<span class="text-xs uppercase tracking-widest font-semibold">Sustainable</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- END: Feature Strip -->
-<!-- BEGIN: Split Video Layout -->
-<section class="flex flex-col md:flex-row h-[700px] bg-sic-charcoal">
-<div class="group relative w-full md:w-1/2 overflow-hidden cursor-pointer">
-<video autoplay="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-with-glass-walls-4437-large.mp4" type="video/mp4"/>
-</video>
-<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all"></div>
-<div class="relative z-10 h-full flex items-center justify-center">
-<h3 class="text-white font-serif text-4xl uppercase tracking-tighter italic">Corporate</h3>
-</div>
-</div>
-<div class="group relative w-full md:w-1/2 overflow-hidden cursor-pointer">
-<video autoplay="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-large-logistics-center-from-above-4447-large.mp4" type="video/mp4"/>
-</video>
-<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all"></div>
-<div class="relative z-10 h-full flex items-center justify-center">
-<h3 class="text-white font-serif text-4xl uppercase tracking-tighter italic">Industrial</h3>
-</div>
-</div>
-</section>
-<!-- END: Split Video Layout -->
-<!-- BEGIN: Dark Stats Section -->
-<section class="relative py-40 bg-sic-charcoal text-white overflow-hidden">
-<video autoplay="" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-a-construction-site-of-a-new-house-4436-large.mp4" type="video/mp4"/>
-</video>
-<div class="relative z-10 max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-<div class="reveal">
-<div class="text-5xl md:text-6xl font-serif mb-2">250+</div>
-<div class="text-xs uppercase tracking-widest text-sic-gold">Projects Completed</div>
-</div>
-<div class="reveal" style="transition-delay: 100ms;">
-<div class="text-5xl md:text-6xl font-serif mb-2">5M+</div>
-<div class="text-xs uppercase tracking-widest text-sic-gold">Sq Ft Delivered</div>
-</div>
-<div class="reveal" style="transition-delay: 200ms;">
-<div class="text-5xl md:text-6xl font-serif mb-2">20+</div>
-<div class="text-xs uppercase tracking-widest text-sic-gold">Years Experience</div>
-</div>
-<div class="reveal" style="transition-delay: 300ms;">
-<div class="text-5xl md:text-6xl font-serif mb-2">98%</div>
-<div class="text-xs uppercase tracking-widest text-sic-gold">Client Retention</div>
-</div>
-</div>
-</section>
-<!-- END: Dark Stats Section -->
-<!-- BEGIN: Tech Section -->
-<section class="py-32 px-8 bg-sic-grey" id="tech">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-<div class="w-full md:w-1/2 reveal">
-<div class="aspect-video bg-sic-charcoal overflow-hidden shadow-2xl">
-<video autoplay="" class="w-full h-full object-cover" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-drone-view-of-a-skyscraper-under-construction-4444-large.mp4" type="video/mp4"/>
-</video>
-</div>
-</div>
-<div class="w-full md:w-1/2 reveal">
-<h2 class="font-serif text-4xl mb-8">Integrated Technology</h2>
-<p class="text-lg leading-relaxed mb-8 font-light italic text-sic-charcoal/80">
-          "Harnessing drone surveying, BIM modeling, and real-time logistics tracking to ensure every structural detail is mapped with absolute precision."
-        </p>
-<p class="text-sm leading-loose mb-10 opacity-70">
-          We leverage the latest in construction technology to provide our clients with transparent updates and highly accurate project timelines. Our digital-first approach minimizes waste and maximizes efficiency across all phases of the build.
-        </p>
-<a class="text-xs uppercase tracking-[0.3em] border-b border-sic-gold pb-2 font-bold" href="#">Discover our tools</a>
-</div>
-</div>
-</section>
-<!-- END: Tech Section -->
-<!-- BEGIN: Sticky Scroll Cards -->
-<section class="relative bg-sic-light pt-32 pb-64">
-<div class="max-w-4xl mx-auto px-8">
-<h2 class="font-serif text-4xl mb-20 text-center reveal">Our Approach</h2>
-<div class="space-y-[30vh]">
-<!-- Card 1 -->
-<div class="sticky-card bg-white p-8 md:p-12 shadow-xl border border-sic-grey flex flex-col md:flex-row gap-8 items-center">
-<div class="w-full md:w-1/2 aspect-video overflow-hidden">
-<video autoplay="" class="w-full h-full object-cover scale-110" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-businessman-reviewing-architectural-plans-42867-large.mp4" type="video/mp4"/>
-</video>
-</div>
-<div class="w-full md:w-1/2">
-<h3 class="font-serif text-2xl mb-4 text-sic-gold">01. Precision Planning</h3>
-<p class="text-sm opacity-70 leading-relaxed">Every milestone is calculated and every risk mitigated before the first shovel touches the earth.</p>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="sticky-card bg-white p-8 md:p-12 shadow-xl border border-sic-grey flex flex-col md:flex-row gap-8 items-center">
-<div class="w-full md:w-1/2 aspect-video overflow-hidden">
-<video autoplay="" class="w-full h-full object-cover scale-110" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-steel-construction-at-a-work-site-4443-large.mp4" type="video/mp4"/>
-</video>
-</div>
-<div class="w-full md:w-1/2">
-<h3 class="font-serif text-2xl mb-4 text-sic-gold">02. Structural Excellence</h3>
-<p class="text-sm opacity-70 leading-relaxed">We source premium materials and employ master craftsmen to ensure your structure stands for generations.</p>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="sticky-card bg-white p-8 md:p-12 shadow-xl border border-sic-grey flex flex-col md:flex-row gap-8 items-center">
-<div class="w-full md:w-1/2 aspect-video overflow-hidden">
-<video autoplay="" class="w-full h-full object-cover scale-110" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-solar-panels-on-a-roof-top-of-a-building-4449-large.mp4" type="video/mp4"/>
-</video>
-</div>
-<div class="w-full md:w-1/2">
-<h3 class="font-serif text-2xl mb-4 text-sic-gold">03. Sustainable Engineering</h3>
-<p class="text-sm opacity-70 leading-relaxed">Incorporating green technology and energy-efficient systems to future-proof your investment.</p>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="sticky-card bg-white p-8 md:p-12 shadow-xl border border-sic-grey flex flex-col md:flex-row gap-8 items-center">
-<div class="w-full md:w-1/2 aspect-video overflow-hidden">
-<video autoplay="" class="w-full h-full object-cover scale-110" loop="" muted="" playsinline="">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-workers-shaking-hands-at-a-construction-site-4442-large.mp4" type="video/mp4"/>
-</video>
-</div>
-<div class="w-full md:w-1/2">
-<h3 class="font-serif text-2xl mb-4 text-sic-gold">04. Seamless Delivery</h3>
-<p class="text-sm opacity-70 leading-relaxed">Handing over the keys with zero punch-list items and complete satisfaction.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- END: Sticky Scroll Cards -->
-<!-- BEGIN: Timeline Section -->
-<section class="py-32 bg-sic-grey overflow-hidden">
-<div class="max-w-4xl mx-auto px-8 relative timeline-line">
-<h2 class="font-serif text-4xl mb-24 text-center reveal">Our Legacy</h2>
-<!-- Timeline Item -->
-<div class="relative flex justify-between items-center mb-24 reveal">
-<div class="w-5/12 text-right">
-<span class="font-serif text-3xl text-sic-gold">2000</span>
-</div>
-<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-sic-gold border-4 border-white z-10"></div>
-<div class="w-5/12">
-<h4 class="font-bold mb-2">Foundation</h4>
-<p class="text-xs opacity-70">SIC LLC founded as a family-owned contracting firm.</p>
-</div>
-</div>
-<div class="relative flex justify-between items-center mb-24 reveal">
-<div class="w-5/12 text-right">
-<h4 class="font-bold mb-2">Expansion</h4>
-<p class="text-xs opacity-70">Major shift into large-scale industrial warehousing.</p>
-</div>
-<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-sic-gold border-4 border-white z-10"></div>
-<div class="w-5/12">
-<span class="font-serif text-3xl text-sic-gold">2010</span>
-</div>
-</div>
-<div class="relative flex justify-between items-center mb-24 reveal">
-<div class="w-5/12 text-right">
-<span class="font-serif text-3xl text-sic-gold">2018</span>
-</div>
-<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-sic-gold border-4 border-white z-10"></div>
-<div class="w-5/12">
-<h4 class="font-bold mb-2">Tech Integration</h4>
-<p class="text-xs opacity-70">Implementation of BIM and Drone-assisted surveying.</p>
-</div>
-</div>
-<div class="relative flex justify-between items-center reveal">
-<div class="w-5/12 text-right">
-<h4 class="font-bold mb-2">Modern Era</h4>
-<p class="text-xs opacity-70">Ranked top 10 for commercial construction efficiency.</p>
-</div>
-<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-sic-gold border-4 border-white z-10"></div>
-<div class="w-5/12">
-<span class="font-serif text-3xl text-sic-gold">2023</span>
-</div>
-</div>
-</div>
-</section>
-<!-- END: Timeline Section -->
-<!-- BEGIN: Calculator Section -->
-<section class="py-32 px-8 bg-sic-light">
-<div class="max-w-4xl mx-auto bg-white p-12 shadow-sm border border-sic-grey">
-<div class="text-center mb-12 reveal">
-<h2 class="font-serif text-3xl mb-4">Project Estimator</h2>
-<p class="text-sm opacity-60">Get a preliminary timeline based on your project requirements.</p>
-</div>
-<div class="grid md:grid-cols-2 gap-10">
-<div>
-<label class="block text-xs uppercase tracking-widest font-bold mb-4">Total Square Footage</label>
-<input class="w-full accent-sic-gold mb-2" id="sqft-range" max="500000" min="5000" step="5000" type="range" value="50000"/>
-<div class="flex justify-between text-xs text-sic-gold font-bold">
-<span id="sqft-display">50,000 SQ FT</span>
-</div>
-</div>
-<div>
-<label class="block text-xs uppercase tracking-widest font-bold mb-4">Project Type</label>
-<select class="w-full border-sic-grey text-sm focus:ring-sic-gold focus:border-sic-gold py-3" id="project-type">
-<option value="retail">Retail / Office</option>
-<option value="industrial">Industrial / Logistics</option>
-<option value="luxury">Luxury Hospitality</option>
-</select>
-</div>
-</div>
-<div class="mt-16 text-center reveal">
-<p class="text-xs uppercase tracking-[0.2em] mb-2 opacity-60">Estimated Timeline</p>
-<div class="text-5xl md:text-6xl font-serif text-sic-charcoal italic" id="result-timeline">8 - 12 Months</div>
-<p class="mt-6 text-xs text-sic-gold">*This is a rough estimate for planning purposes only.</p>
-</div>
-</div>
-</section>
-<!-- END: Calculator Section -->
-<!-- BEGIN: Footer -->
-<footer class="bg-sic-charcoal text-white pt-24 pb-12 px-8">
-<div class="max-w-7xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-20 border-b border-white/10">
-<div>
-<h2 class="font-serif text-3xl mb-8">SIC LLC</h2>
-<p class="text-xs leading-loose opacity-60">Crafting structural landscapes that redefine commercial environments. Premium construction with unwavering integrity.</p>
-</div>
-<div>
-<h4 class="text-xs uppercase tracking-widest mb-8 text-sic-gold">Quick Links</h4>
-<ul class="space-y-4 text-sm opacity-60">
-<li><a class="hover:text-white transition-colors" href="#">Our Portfolio</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Leadership Team</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-xs uppercase tracking-widest mb-8 text-sic-gold">Headquarters</h4>
-<p class="text-sm opacity-60 leading-relaxed">
-            1200 Architecture Ave<br/>
-            Design District, TX 75201<br/>
-            +1 (555) 902-3344
-          </p>
-</div>
-<div>
-<h4 class="text-xs uppercase tracking-widest mb-8 text-sic-gold">Newsletter</h4>
-<div class="flex">
-<input class="bg-transparent border-b border-white/20 text-sm py-2 focus:ring-0 focus:border-sic-gold w-full placeholder:text-white/30" placeholder="Email Address" type="email"/>
-<button class="ml-4 text-sic-gold">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-</button>
-</div>
-</div>
-</div>
-<div class="pt-12 flex flex-col md:row justify-between items-center gap-6">
-<p class="text-[10px] uppercase tracking-[0.3em] opacity-40">© 2023 SIC LLC Construction. All Rights Reserved.</p>
-<div class="flex gap-8 opacity-40 hover:opacity-100 transition-opacity">
-<a href="#"><span class="text-[10px] uppercase tracking-widest">LinkedIn</span></a>
-<a href="#"><span class="text-[10px] uppercase tracking-widest">Instagram</span></a>
-</div>
-</div>
-</div>
-</footer>
-<!-- END: Footer -->
-<script data-purpose="interaction-handlers">
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('main-nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('bg-white', 'shadow-sm', 'py-4');
-        nav.classList.remove('bg-transparent', 'text-white', 'py-6');
-      } else {
-        nav.classList.remove('bg-white', 'shadow-sm', 'py-4');
-        nav.classList.add('bg-transparent', 'py-6');
+<body>
+  <div class="container">
+    <button class="arrow arrow-left" id="prev" disabled>&larr;</button>
+    <div class="scroll-container" id="scroll-container">
+      <img src="1.png" alt="Design 1" class="design">
+      <img src="2.png" alt="Design 2" class="design" style="display: none;">
+      <img src="3.png" alt="Design 3" class="design" style="display: none;">
+      <img src="4.png" alt="Design 4" class="design" style="display: none;">
+      <!-- Add more images here -->
+    </div>
+    <button class="arrow arrow-right" id="next">&rarr;</button>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.design');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let currentIndex = 0;
+
+    function updateImages() {
+      images.forEach((img, index) => {
+        img.style.display = index === currentIndex ? 'block' : 'none';
+      });
+
+      prevButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex === images.length - 1;
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateImages();
       }
     });
 
-    // Reveal on Scroll
-    const observerOptions = { threshold: 0.15 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+        updateImages();
+      }
+    });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Calculator Logic
-    const sqftRange = document.getElementById('sqft-range');
-    const projectType = document.getElementById('project-type');
-    const sqftDisplay = document.getElementById('sqft-display');
-    const resultTimeline = document.getElementById('result-timeline');
-
-    function updateCalculator() {
-      const sqft = parseInt(sqftRange.value);
-      const type = projectType.value;
-      sqftDisplay.innerText = sqft.toLocaleString() + ' SQ FT';
-      
-      let baseMonths = sqft / 10000;
-      let multiplier = 1;
-      
-      if (type === 'industrial') multiplier = 0.8;
-      if (type === 'luxury') multiplier = 1.5;
-      
-      let min = Math.round(baseMonths * multiplier);
-      let max = Math.round(min * 1.3);
-      
-      if (min < 4) { min = 4; max = 6; }
-      
-      resultTimeline.innerText = `${min} - ${max} Months`;
-    }
-
-    sqftRange.addEventListener('input', updateCalculator);
-    projectType.addEventListener('change', updateCalculator);
+    updateImages(); // Initialize the image display
   </script>
-</body></html>
+  <!-- comment -->
+</body>
+</html>
